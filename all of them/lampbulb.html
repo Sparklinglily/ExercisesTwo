@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Light Bulb</title>
+  <style>
+    body{
+      background: black;
+    }
+
+    #lamp{
+      margin-top: 50px;
+      margin-left: 42%;
+    }
+
+    h1{
+
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-decoration: underline double;
+      text-shadow: 0 0 8px rgb(23, 222, 248);
+      color: white;
+      font-weight: bolder;
+      text-align: center;
+      background-image: linear-gradient(
+      whitesmoke, rgb(72, 241, 241));
+    }
+
+    .container{
+      background:rgb(25, 250, 250);
+      height: 600px;
+
+      /* padding: 10px; */
+    }
+
+
+    .switch{
+    margin-left: 30%;
+    padding:20px;
+
+    }
+    button{
+      padding: 20px;
+      background: rgb(54, 168, 54);
+      border: none;
+      color: whitesmoke;
+      font-weight: 800;
+    }
+
+button:active{
+  background: rgb(71, 119, 71);
+  transform: scale(0.9);
+}
+.off{
+  background: red;
+
+}
+.off:active{
+  background: maroon;
+}
+
+
+        /* ADVANCE SWITCH */
+        .switcher {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-left: 20%;
+        }
+
+        .switcher input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;}
+             </style>
+
+
+</head>
+<body>
+ 
+  <div class="container">
+    <h1>JavaScript Light Switch</h1>
+    <img id='lamp' src="lamp/img_bulbon.gif" alt="">
+ 
+  <section class= "switch">
+    <button onclick="turnOn();"  id="on">Turn On</button>
+    <button onclick="turnOff();" id="off" class="off"> Turn Off</button>
+    <br>
+    <br>
+
+    <label class="switcher">
+            <input type="checkbox" checked onchange="trigger();" >
+            <span class="slider round"></span>
+          </label>
+
+  </section>
+</div>  
+<script>
+  var lamp=document.getElementById('lamp');
+
+  lamp.src='lamp/img_bulboff.gif';
+ 
+  function turnOn(){
+    lamp.src='lamp/img_bulbon.gif';
+  }
+
+  function turnOff(){
+    lamp.src='lamp/img_bulboff.gif';
+
+  }
+
+  function trigger(){
+   if(lamp.getAttribute('src') == 'lamp/img_bulboff.gif'){
+     turnOn();
+   }
+   else{
+     turnOff();
+   }
+ 
+  }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
